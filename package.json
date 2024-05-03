@@ -1,0 +1,30 @@
+{
+  "name": "best-dynamo-js",
+  "version": "0.0.1",
+  "description": "An easy DynamoDB javascript wrapper",
+  "license": "MIT",
+  "type": "module",
+  "exports": "./index.js",
+  "types": "index.d.ts",
+  "engines": {
+    "node": ">=14.16"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "update-key-parser": "peggy -o ./param_builder/key_condition_parser.js --format es ./param_builder/key_condition_grammar.peggy",
+    "update-filter-parser": "peggy -o ./param_builder/filter_parser.js --format es ./param_builder/filter_grammar.peggy"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/matt-way/dynamo.git"
+  },
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/matt-way/dynamo/issues"
+  },
+  "homepage": "https://github.com/matt-way/dynamo#readme",
+  "dependencies": {
+    "aws-sdk": "^2.1155.0",
+    "peggy": "^4.0.2"
+  }
+}
