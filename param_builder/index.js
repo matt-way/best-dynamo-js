@@ -53,33 +53,45 @@ function createAliasManager() {
 }
 
 const Params = new Proxy(
+  {},
   {
-    params: {},
-    aliasManager: createAliasManager(),
-  },
-  {
-    get(target, property, receiver) {
-      return (...args) => {
-        if (property === 'compile') {
-          return {
-            ...target.aliasManager.getAliases(),
-            ...target.params,
-          }
-        }
-
-        if (!functionMap[property]) {
-          throw new Error(`Method ${property} is not a valid Params function`)
-        }
-
-        Object.assign(
-          target.params,
-          functionMap[property](...args, target.aliasManager.createAlias)
-        )
-
-        return receiver
-      }
+    get(target, property) {
+      // this create a new Params instance and immediately calls the original property
+      return createParamsInstance()[property]
     },
   }
 )
+
+function createParamsInstance() {
+  return new Proxy(
+    {
+      params: {},
+      aliasManager: createAliasManager(),
+    },
+    {
+      get(target, property, receiver) {
+        return (...args) => {
+          if (property === 'compile') {
+            return {
+              ...target.aliasManager.getAliases(),
+              ...target.params,
+            }
+          }
+
+          if (!functionMap[property]) {
+            throw new Error(`Method ${property} is not a valid Params function`)
+          }
+
+          Object.assign(
+            target.params,
+            functionMap[property](...args, target.aliasManager.createAlias)
+          )
+
+          return receiver
+        }
+      },
+    }
+  )
+}
 
 export default Params

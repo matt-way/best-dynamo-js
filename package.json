@@ -1,6 +1,6 @@
 {
   "name": "best-dynamo-js",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "An easy DynamoDB javascript wrapper",
   "license": "MIT",
   "type": "module",
