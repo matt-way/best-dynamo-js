@@ -16,13 +16,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/matt-way/dynamo.git"
+    "url": "git+https://github.com/matt-way/best-dynamo-js.git"
   },
   "author": "",
   "bugs": {
-    "url": "https://github.com/matt-way/dynamo/issues"
+    "url": "https://github.com/matt-way/best-dynamo-js/issues"
   },
-  "homepage": "https://github.com/matt-way/dynamo#readme",
+  "homepage": "https://github.com/matt-way/best-dynamo-js#readme",
   "dependencies": {
     "aws-sdk": "^2.1155.0",
     "peggy": "^4.0.2"
