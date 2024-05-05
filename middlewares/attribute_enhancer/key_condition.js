@@ -6,14 +6,10 @@ function compileCondition(condition, createAlias) {
   return `${aliasAttribute} ${operator} ${aliasValues.join(' and ')}`
 }
 
-function keyCondition(conditionString, createAlias) {
+function keyConditionHandler(conditionString, createAlias) {
   const result = parser.parse(conditionString)
 
-  return {
-    KeyConditionExpression: result
-      .map(item => compileCondition(item, createAlias))
-      .join(' and '),
-  }
+  return result.map(item => compileCondition(item, createAlias)).join(' and ')
 }
 
-export { keyCondition }
+export { keyConditionHandler }

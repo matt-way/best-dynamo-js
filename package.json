@@ -1,7 +1,7 @@
 {
   "name": "best-dynamo-js",
-  "version": "0.0.3",
-  "description": "An easy DynamoDB javascript wrapper",
+  "version": "0.1.0",
+  "description": "A collection of middlewares and custom commands that make using DynamoDB with javascript easier",
   "license": "MIT",
   "type": "module",
   "exports": "./index.js",
@@ -24,7 +24,6 @@
   },
   "homepage": "https://github.com/matt-way/best-dynamo-js#readme",
   "dependencies": {
-    "aws-sdk": "^2.1155.0",
     "peggy": "^4.0.2"
   }
 }

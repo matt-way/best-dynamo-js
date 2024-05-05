@@ -17,11 +17,9 @@ function compileCondition(condition, createAlias) {
   return `${aliasAttribute} ${operator} ${aliasValues.join(' and ')}`
 }
 
-function filter(filterString, createAlias) {
+function filterHandler(filterString, createAlias) {
   const result = parser.parse(filterString)
-  return {
-    FilterExpression: compileGroup(result, createAlias),
-  }
+  return compileGroup(result, createAlias)
 }
 
-export { filter }
+export { filterHandler }

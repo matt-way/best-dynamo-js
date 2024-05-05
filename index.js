@@ -1,5 +1,4 @@
-import * as Dynamo from './client.js'
+import * as commands from './commands/index.js'
+import * as middlewares from './middlewares/index.js'
 
-import Params from './param_builder/index.js'
-
-export { Dynamo, Params }
+export { middlewares, commands }
